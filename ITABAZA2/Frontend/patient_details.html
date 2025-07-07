@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Styles/nav.css">
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./Styles/patient.details.css">
+    <link rel="stylesheet" href="./Styles/footer.css">
+    <link rel="stylesheet" href="./Styles/responsive.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Select Appointment Type - Medistar</title>
+    <link rel="icon" href="./Files/Medistar-logo-crop.jpeg">
+</head>
+<body>
+    <section id="navbar">
+        <!-- Navbar Imported -->
+    </section>
+
+    <div class="container py-5 mt-5" style="margin-top: 6rem !important;">
+        <div class="row">
+            <!-- Doctor Information Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="text-center mb-4">
+                            <img id="doctor-image" src="./Files/default-doctor.png" alt="Doctor" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRjVGNUY1Ii8+Cjx0ZXh0IHg9Ijc1IiB5PSI3NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjNjY2NjY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+RG9jdG9yPC90ZXh0Pgo8L3N2Zz4K';">
+                            <h4 id="doctor-name" class="mb-0">Dr. Joseph Nishimwe</h4>
+                            <p id="doctor-dept" class="text-muted">Cardiology</p>
+                        </div>
+                        <div class="doctor-details">
+                            <p><i class="fas fa-graduation-cap me-2"></i><span id="doctor-qual">MBBS, MD Cardiology</span></p>
+                            <p><i class="fas fa-briefcase me-2"></i><span id="doctor-exp">12 years experience</span></p>
+                            <p><i class="fas fa-stethoscope me-2"></i>Specializes in heart diseases</p>
+                            <p><i class="fas fa-money-bill-wave me-2"></i><span id="consultation-fee">Rs. 1,000</span></p>
+                            <div class="text-center mt-4">
+                                <span class="badge bg-success p-2">
+                                    <i class="fas fa-check-circle me-1"></i>Available Today
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointment Type Selection -->
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">Select Appointment Type</h3>
+                        
+                        <div class="row g-4">
+                            <!-- Video Consultation Option -->
+                            <div class="col-md-6">
+                                <div class="appointment-option card h-100" onclick="selectAppointmentType('video')" data-aos="fade-up">
+                                    <div class="card-body text-center">
+                                        <div class="icon-circle mb-3">
+                                            <i class="fas fa-video"></i>
+                                        </div>
+                                        <h5>Video Consultation</h5>
+                                        <p class="text-muted">Consult from the comfort of your home</p>
+                                        <ul class="list-unstyled text-start">
+                                            <li><i class="fas fa-check-circle text-success me-2"></i>No travel required</li>
+                                            <li><i class="fas fa-check-circle text-success me-2"></i>Digital prescription</li>
+                                            <li><i class="fas fa-check-circle text-success me-2"></i>Secure video platform</li>
+                                            <li><i class="fas fa-check-circle text-success me-2"></i>Follow-up messages</li>
+                                        </ul>
+                                        <div class="mt-4">
+                                            <span class="badge bg-primary p-2">
+                                                <i class="fas fa-clock me-1"></i>Available in 30 mins
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- In-Person Visit Option -->
+                            <div class="col-md-6">
+                                <div class="appointment-option card h-100" onclick="selectAppointmentType('in-person')" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="card-body text-center">
+                                        <div class="icon-circle mb-3">
+                                            <i class="fas fa-hospital-user"></i>
+                                        </div>
+                                        <h5>In-Person Visit</h5>
+                                        <p class="text-muted">Visit the doctor at hospital</p>
+                                        <ul class="list-unstyled text-start">
+                                            <li><i class="fas fa-check-circle text-success me-2"></i>Physical examination</li>
+                                            <li><i class="fas fa-check-circle text-success me-2"></i>Detailed consultation</li>
+                                            <li><i class="fas fa-check-circle text-success me-2"></i>Immediate tests if needed</li>
+                                            <li><i class="fas fa-check-circle text-success me-2"></i>Direct medical attention</li>
+                                        </ul>
+                                        <div class="mt-4">
+                                            <span class="badge bg-info p-2">
+                                                <i class="fas fa-calendar-check me-1"></i>Next slot today 4 PM
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div class="mt-4 p-3 bg-light rounded">
+                            <h6 class="mb-3"><i class="fas fa-info-circle me-2"></i>Important Information</h6>
+                            <ul class="small text-muted mb-0">
+                                <li>Appointment confirmation will be sent to your email</li>
+                                <li>Please arrive 15 minutes early for in-person visits</li>
+                                <li>Carry previous medical records if any</li>
+                                <li>Rescheduling is available up to 2 hours before the appointment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="footer">
+        <!-- Footer Imported -->
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Function to handle appointment type selection
+        function selectAppointmentType(type) {
+            // Only set the appointment type, do not overwrite docObj or formObj
+            localStorage.setItem('appointmentType', type);
+            // Show confirmation before redirect
+            swal({
+                title: "Confirm Appointment Type",
+                text: `You have selected ${type === 'video' ? 'Video Consultation' : 'In-Person Visit'}. Proceed?`,
+                icon: "info",
+                buttons: true,
+            })
+            .then((willProceed) => {
+                if (willProceed) {
+                    // Redirect to problem description page for both types
+                    window.location.href = 'problem-description.html';
+                }
+            });
+        }
+
+        // Load doctor information when page loads
+        window.onload = function() {
+            // Prefer docObj (from Find Doctors flow), fallback to selectedDoctor (from direct flow)
+            let docObj = JSON.parse(localStorage.getItem('docObj'));
+            let doctorInfo = docObj || JSON.parse(localStorage.getItem('selectedDoctor')) || {};
+            if (doctorInfo.name) {
+                document.getElementById('doctor-name').textContent = doctorInfo.name;
+                document.getElementById('doctor-dept').textContent = doctorInfo.dept || doctorInfo.department;
+                document.getElementById('doctor-qual').textContent = doctorInfo.qual || doctorInfo.qualification;
+                document.getElementById('doctor-exp').textContent = doctorInfo.exp || doctorInfo.experience;
+                document.getElementById('consultation-fee').textContent = doctorInfo.fee || 'Rs. 1,000';
+                if (doctorInfo.img || doctorInfo.image) {
+                    document.getElementById('doctor-image').src = doctorInfo.img || doctorInfo.image;
+                }
+            }
+        }
+
+        async function bookEnhancedAppointment(doctorId, appointmentData, token) {
+            const response = await fetch(`/api/enhanced-appointment/create/${doctorId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // if using JWT auth
+                },
+                body: JSON.stringify(appointmentData)
+            });
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.msg || 'Failed to book appointment');
+            }
+            return await response.json();
+        }
+
+        // Example usage:
+        const appointmentData = {
+            userID: user.id, // patient id
+            email: user.email,
+            ageOfPatient: user.age,
+            gender: user.gender,
+            address: user.address,
+            problemDescription: "Headache and fever",
+            appointmentDate: "2024-07-01",
+            appointmentTime: "10:00",
+            consultationType: "video-call",
+            symptoms: ["headache", "fever"],
+            medicalHistory: "No major illnesses",
+            medications: "Paracetamol",
+            paymentDetails: {
+                transactionId: "TX123456",
+                simcardHolder: "John Doe",
+                phoneNumber: "+250788123456",
+                paymentMethod: "momo",
+                amount: 7000,
+                currency: "RWF"
+            }
+        };
+
+        bookEnhancedAppointment(selectedDoctor.id, appointmentData, userToken)
+            .then(data => {
+                alert('Appointment booked! Confirmation sent to your email.');
+                // Redirect or update UI
+            })
+            .catch(err => {
+                alert('Error: ' + err.message);
+            });
+    </script>
+    <script type="module" src="./Scripts/navbar.js"></script>
+    <script type="module" src="./Scripts/footer.js"></script>
+</body>
+</html>
